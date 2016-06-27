@@ -1,0 +1,42 @@
+<div class="page-header">
+  <h2>Contact List</h2>
+</div>
+
+<form class="form-inline">
+  <div class="form-group">
+    <label for="contacts-search">Quick Find Contacts:</label>
+    <input type="text" class="form-control" id="contacts-search" ng-model='contacts.search' placeholder="Type Here">
+
+  </div>
+  <div class="pull-right">
+    <a href="#edit">
+      <button type="button" name="Add contacts" class="btn btn-default">Add contacts</button>
+    </a>
+  </div>
+</form>
+<table class="table table-bordered">
+  <tr>
+    <th>#</th>
+    <th>Name</th>
+    <th>Email Address</th>
+    <th>Contact No</th>
+  </tr>
+  <tr ng-repeat="con in contacts.list | filter: contacts.search">
+    <td>
+      {{ con.id }}
+    </td>
+    <td>
+      {{ con.firstname }} {{ con.lastname }}
+    </td>
+    <td>
+      <span ng-repeat="email in con.emails">
+        {{email.type.name}}: {{email.value}}
+      </span>
+    </td>
+    <td>
+      <span ng-repeat="phone in con.phones">
+        {{phone.type.name}}: {{phone.value}}
+      </span>
+    </td>
+  </tr>
+</table>
