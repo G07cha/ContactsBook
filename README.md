@@ -1,8 +1,19 @@
+## About
+
+Contact-list app heavily based on [AngularJS Boilerplate](https://github.com/jbutko/AngularJS-Boilerplate).
+
+## 0. Requirements
+- Node 4+
+- bower
+- gulp
+- compass
+
+Also for end-to-end testing you will need running selenium server that could be easily achived by using [webdriver-manager](https://www.npmjs.com/package/webdriver-manager)
+
 ## 1. Setup
 ```bash
 npm install
 ```
-- install all npm and bower dependencies
 
 **Note:** If `npm install` fails during dependency installation it will be likely caused by `gulp-imagemin`. In that case remove `gulp-imagemin` dependency from `package.json`, run `npm install` again and then install `gulp-imagemin` separately with following command: `npm install gulp-imagemin --save-dev`
 
