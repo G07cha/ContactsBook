@@ -160,9 +160,9 @@ gulp.task('usemin', function() {
       css: [$.minifyCss(), 'concat'],
       libs: [$.uglify()],
       nonangularlibs: [$.uglify()],
-      angularlibs: [$.uglify()],
-      appcomponents: [$.uglify()],
-      // mainapp: [$.uglify()]
+      angularlibs: [$.uglify({mangle: false})],
+      appcomponents: [$.uglify({mangle: false})],
+      mainapp: []
     }))
     .pipe(gulp.dest('./_build/'));
 });
