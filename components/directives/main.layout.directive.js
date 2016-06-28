@@ -12,11 +12,12 @@
    *
    */
   angular
-    .module('boilerplate')
-    .directive('mainLayout', tinMainNav);
+    .module('ContactsList')
+    .directive('mainLayout', MainLayout);
 
-  function tinMainNav() {
+  MainLayout.$inject = ['$location'];
 
+  function MainLayout($location) {
     // Definition of directive
     var directiveDefinitionObject = {
       restrict: 'E',

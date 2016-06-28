@@ -1,0 +1,25 @@
+<div class="row page-header">
+  <div class="col-md-11 col-sm-10 col-xs-10">
+    <label ng-bind="title"></label>
+  </div>
+  <div class="col-md-1 col-sm-1 col-xs-1">
+    <button type="button" class="btn btn-default btn-circle" ng-click="add()">+</button>
+  </div>
+</div>
+
+<div class="row" ng-repeat="item in items">
+  <div class="col-md-2 col-sm-3 col-xs-4">
+    <select class="form-control"
+      ng-options="t.name for t in types track by t.value"
+      ng-change="ontypechange()($index)"
+      ng-model="item.type">
+    </select>
+  </div>
+  
+  <div class="col-md-9 col-sm-7 col-xs-6">
+    <input type="{{type}}" required class="form-control" ng-model="item.value" placeholder="{{placeholder}}">
+  </div>
+  <div class="col-md-1 col-sm-2 col-xs-2">
+    <button type="button" class="btn btn-default btn-circle" ng-click="remove($index)">-</button>
+  </div>
+</div>
