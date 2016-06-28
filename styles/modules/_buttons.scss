@@ -4,3 +4,13 @@ Buttons
 
 ******************************************************************/
 
+#add-contact {
+  background-color: $dark-gray;
+  color: $white;
+}
+
+.btn-circle {
+  border-radius: 20px;
+  width: 35px;
+  margin-top: -5px; // To fix issue with hr element
+}

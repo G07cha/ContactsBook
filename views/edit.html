@@ -1,77 +1,66 @@
 <div class="page-header">
-  <h2>Contact List</h2>
+  <h2>Contact Form</h2>
 </div>
-<div class="pull-right">
-  <button type="button" class="btn btn-default">Add contacts</button>
+<div class="row">
+  <div class="col-md-12">
+    <div class="pull-right">
+      <button type="button" ng-click="edit.save()" class="btn btn-default" id="add-contact">Add Contact</button>
+    </div>
+  </div>
 </div>
 
-<form>
+<form id="edit-form" ng-submit="edit.save()" >
+
   <!-- First name -->
-  <div class="form-group">
-    <label for="first-name">First name:</label>
-    <input type="text" class="form-control" ng-model="edit.contact.firstname" placeholder="Enter the First Name">
+  <div class="row">
+    <div class="col-md-2">
+      <label for="firstname">First Name:</label>
+    </div>
+    <div class="col-md-10">
+      <input type="text"
+        class="form-control"
+        ng-model="edit.contact.firstname"
+        required
+        id="firstname"
+        placeholder="Enter the First Name">
+    </div>
   </div>
+
   <!-- Last name -->
-  <div class="form-group">
-    <label for="last-name">Last name:</label>
-    <input type="text" class="form-control" ng-model="edit.contact.lastname" placeholder="Enter the Last Name">
+  <div class="row">
+    <div class="col-md-2">
+      <label for="lastname">Last Name:</label>
+    </div>
+    <div class="col-md-10">
+      <input type="text"
+        class="form-control"
+        ng-model="edit.contact.lastname"
+        required
+        id="lastname"
+        placeholder="Enter the Last Name">
+    </div>
   </div>
 
-  <!-- Email -->
-  <div class="page-header">
-    <h5>Email
-      <div class="pull-right">
-        <button type="button" class="btn btn-default btn-circle" ng-click="edit.addEmail()">+</button>
-      </div>
-    </h5>
-  </div>
+  <!-- Emails -->
+  <typed-list title="Email:"
+    placeholder="Enter Email Address"
+    type="email"
+    types="edit.types"
+    items="edit.contact.emails">
+  </typed-list>
 
-  <div class="inline-group" ng-repeat="email in edit.contact.emails">
-    <span class="input-group-btn">
-      <select class="form-control"
-        ng-options="type.name for type in edit.types track by type.value"
-        ng-model="email.type">
-      </select>
-    </span>
-    <span class="input-group-btn">
-      <input type="text" class="form-control" ng-model="email.value" ng-required placeholder="Enter Email Address">
-    </span>
-    <span class="input-group-btn">
-      <div class="pull-right">
-        <button type="button" class="btn btn-default btn-circle" ng-click="edit.removeEmail($index)">-</button>
-      </div>
-    </span>
-  </div>
+  <!-- Phones -->
+  <typed-list title="Phone No:"
+    placeholder="Enter Phone No"
+    type="tel"
+    types="edit.types"
+    ontypechange="edit.setPhonePrefix"
+    items="edit.contact.phones">
+  </typed-list>
 
-  <!-- Phone -->
-  <div class="page-header">
-    <h5>Phone
-      <div class="pull-right">
-        <button type="button" class="btn btn-default btn-circle" ng-click="edit.addPhone()">+</button>
-      </div>
-    </h5>
-  </div>
-
-  <div class="inline-group" ng-repeat="phone in edit.contact.phones">
-    <span class="input-group-btn">
-      <select class="form-control"
-        ng-options="type.name for type in edit.types track by type.value"
-        ng-model="phone.type"
-        ng-change="edit.setPhonePrefix($index)">
-      </select>
-    </span>
-    <span class="input-group-btn">
-      <input type="text" class="form-control" ng-model="phone.value" ng-required placeholder="Enter Phone No">
-    </span>
-    <span class="input-group-btn">
-      <div class="pull-right">
-        <button type="button" class="btn btn-default btn-circle" ng-click="edit.removePhone($index)">-</button>
-      </div>
-    </span>
-  </div>
-
+  <hr>
   <div class="pull-right">
-    <button type="button" ng-click="edit.save()" class="btn btn-default">Save</button>
+    <button type="submit" class="btn btn-default">Save</button>
     <a href="#contacts">
       <button type="button" class="btn btn-default">Cancel</button>
     </a>

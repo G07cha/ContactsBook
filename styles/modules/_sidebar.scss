@@ -7,7 +7,7 @@
   height: 100%;
   margin-left: -250px;
   overflow-y: auto;
-  background: #000;
+  background: $brown;
   width: 250px;
 }
 
@@ -15,24 +15,22 @@
   position: absolute;
   top: 0;
   width: 250px;
-  margin: 0;
-  padding: 0;
+  padding-top: 20px;
+  padding-left: 0;
   list-style: none;
   li {
-    text-indent: 20px;
+    text-indent: 50px;
     line-height: 40px;
     a {
       display: block;
       text-decoration: none;
-      color: #999999;
+      color: $white;
     }
-    a:hover {
-      text-decoration: none;
-      color: #fff;
-      background: rgba(255,255,255,0.2);
-    }
-    .sidebar-nav li a:active,
-    .sidebar-nav li a:focus {
+    a:hover,
+    a:active,
+    a:focus {
+      background: #E4E4E4;
+      color: $black;
       text-decoration: none;
     }
   }

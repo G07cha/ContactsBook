@@ -2,41 +2,50 @@
   <h2>Contact List</h2>
 </div>
 
-<form class="form-inline">
-  <div class="form-group">
+<div class="row">
+  <div class="col-md-3">
     <label for="contacts-search">Quick Find Contacts:</label>
-    <input type="text" class="form-control" id="contacts-search" ng-model='contacts.search' placeholder="Type Here">
-
   </div>
-  <div class="pull-right">
-    <a href="#edit">
-      <button type="button" name="Add contacts" class="btn btn-default">Add contacts</button>
-    </a>
+  <div class="col-md-5">
+    <input
+      type="text"
+      class="form-control do-not-override"
+      id="contacts-search"
+      ng-model='contacts.search'
+      placeholder="Type Here">
   </div>
-</form>
-<table class="table table-bordered">
+  <div class="col-md-4">
+    <div class="pull-right">
+      <a href="#edit">
+        <button type="button" name="Add contacts" id="add-contact" class="btn btn-default">Add Contact</button>
+      </a>
+    </div>
+  </div>
+</div>
+<br>
+<table class="table table-striped">
   <tr>
     <th>#</th>
     <th>Name</th>
     <th>Email Address</th>
     <th>Contact No</th>
   </tr>
-  <tr ng-repeat="con in contacts.list | filter: contacts.search">
+  <tr dir-paginate="con in contacts.list | filter: contacts.search | itemsPerPage: 5">
+    <td ng-bind="con.id"></td>
     <td>
-      {{ con.id }}
+      <a ng-href="#edit/{{con.id - 1}}" ng-bind="con.firstname + ' ' + con.lastname"></a>
     </td>
     <td>
-      {{ con.firstname }} {{ con.lastname }}
+      <div ng-repeat="email in con.emails">
+        <span class="itemname" ng-bind="email.type.name"></span>: <span ng-bind="email.value"></span>
+      </div>
     </td>
     <td>
-      <span ng-repeat="email in con.emails">
-        {{email.type.name}}: {{email.value}}
-      </span>
-    </td>
-    <td>
-      <span ng-repeat="phone in con.phones">
-        {{phone.type.name}}: {{phone.value}}
-      </span>
+      <div ng-repeat="phone in con.phones">
+        <span class="itemname" ng-bind="phone.type.name"></span>: <span ng-bind="phone.value"></span>
+      </div>
     </td>
   </tr>
 </table>
+
+<dir-pagination-controls template-url="components/pagination.tpl.html"></dir-pagination-controls>

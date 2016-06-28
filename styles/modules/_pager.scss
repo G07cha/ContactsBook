@@ -1,0 +1,13 @@
+.pager {
+  li {
+    a {
+      border-radius: 5px;
+      color: $text-color;
+
+      &.active {
+        background-color: $gray;
+        color: $white;
+      }
+    }
+  }
+}
