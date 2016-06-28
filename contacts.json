@@ -1,0 +1,53 @@
+[
+  {
+    "firstname": "Konstantin",
+    "lastname": "Azizov",
+    "emails": [
+      {
+        "type": {
+          "name": "Personal",
+          "value": "home"
+        },
+        "value": "azizovkostya97@gmail.com"
+      }
+    ],
+    "phones": [
+      {
+        "type": {
+          "name": "Personal",
+          "value": "home"
+        },
+        "value": "343243224"
+      }
+    ]
+  },
+  {
+    "firstname": "Test",
+    "lastname": "Testovich",
+    "emails": [
+      {
+        "type": {
+          "name": "Personal",
+          "value": "home"
+        },
+        "value": "somemail@gmail.com"
+      },
+      {
+        "type": {
+          "name": "Work",
+          "value": "work"
+        },
+        "value": "someworkemail@gmail.com"
+      }
+    ],
+    "phones": [
+      {
+        "type": {
+          "name": "Personal",
+          "value": "home"
+        },
+        "value": "343243224"
+      }
+    ]
+  }
+]
