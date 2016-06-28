@@ -1,11 +1,11 @@
 ;(function() {
   angular
-    .module('boilerplate')
+    .module('ContactsList')
     .factory('ServerData', ServerData);
 
-  ServerData.$inject = ['$http', 'LocalStorage'];
+  ServerData.$inject = ['$http', 'LocalStorage', 'CONSTANTS'];
 
-  function ServerData($http, LocalStorage) {
+  function ServerData($http, LocalStorage, CONSTANTS) {
     /**
      * Get data from server and save to LocalStorage with provided name
      * @param  {String} name File name without extension(json will be applied)

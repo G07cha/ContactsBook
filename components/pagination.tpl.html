@@ -1,0 +1,13 @@
+<ul class="pager custom-pager pull-right">
+    <li ng-if="directionLinks" ng-class="{ disabled : pagination.current == 1 }">
+        <a href="" ng-click="setCurrent(pagination.current - 1)">&larr; Prev</a>
+    </li>
+    <li ng-repeat="pageNumber in pages track by tracker(pageNumber, $index)"
+        ng-class="{ disabled : pageNumber == '...' }">
+        <a href="" ng-class="{ active : pagination.current == pageNumber}" ng-click="setCurrent(pageNumber)">{{ pageNumber }}</a>
+    </li>
+
+    <li ng-if="directionLinks" ng-class="{ disabled : pagination.current == pagination.last }">
+        <a href="" ng-click="setCurrent(pagination.current + 1)">Next &rarr;</a>
+    </li>
+</ul>

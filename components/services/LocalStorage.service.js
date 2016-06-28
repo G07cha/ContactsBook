@@ -24,7 +24,7 @@
      *
      */
     angular
-      .module('boilerplate')
+      .module('ContactsList')
       .factory('LocalStorage', [
         '$window', '$rootScope', LocalStorageService
       ]);

@@ -1,6 +1,4 @@
 ;(function() {
-
-
 	/**
 	 * Place to store API URL or any other constants
 	 * Usage:
@@ -9,10 +7,8 @@
 	 * CONSTANTS.API_URL
 	 */
   angular
-  	.module('boilerplate')
+  	.module('ContactsList')
     .constant('CONSTANTS', {
-      'API_URL': 'http://www.yourAPIurl.com/'
+      'LOCAL_STORAGE_LIST': 'contacts'
     });
-
-
 })();
