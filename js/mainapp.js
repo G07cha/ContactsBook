@@ -11,7 +11,7 @@
      * @param  {String} name File name without extension(json will be applied)
      */
     function loadData(name) {
-      $http.get('ContactsBook/contacts.json')
+      $http.get(name + '.json')
       .then(function success(response) {
         if(LocalStorage.get(name) === null) {
           LocalStorage.set(name, response.data)
